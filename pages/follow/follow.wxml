@@ -1,0 +1,34 @@
+<view class="container">
+  <!-- 蓝色半圆背景（和其他页面一致） -->
+  <view class="semicircle"></view>
+
+  <!-- 自定义返回导航栏 -->
+  <view class="custom-nav">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-arrow">←</text>
+      <text class="back-text">返回</text>
+    </view>
+    <text class="nav-title">我的关注</text>
+  </view>
+
+  <!-- 内容容器（避免被背景挡住） -->
+  <view class="content">
+    <!-- 空状态 -->
+    <view class="empty-view" wx:if="{{followList.length === 0}}">
+      <text class="empty-text">暂无关注用户，快去关注吧～</text>
+    </view>
+    
+    <!-- 关注列表（用户列表样式，更贴合业务） -->
+    <view class="follow-list" wx:else>
+      <view class="follow-item" wx:for="{{followList}}" wx:key="_id">
+        <!-- 用户头像 -->
+        <image class="follow-avatar" src="{{item.avatar || '/images/avatar-default.png'}}" mode="aspectFill"></image>
+        <!-- 用户信息 -->
+        <view class="follow-info">
+          <text class="follow-name">{{item.nickname || '未知用户'}}</text>
+          <text class="follow-desc">{{item.signature || '暂无简介'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

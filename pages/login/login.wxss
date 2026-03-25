@@ -1,0 +1,105 @@
+/* pages/login/login.wxss */
+.login-container {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #fef2e6;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.logo-section {
+  margin-top: 15vh;
+  text-align: center;
+  margin-bottom: 80rpx;
+}
+.title {
+  font-size: 144rpx;
+  color: #FFE449;
+  font-family: "华文琥珀";
+  margin-bottom: 30rpx;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  line-height: 1.3;
+}
+.subtitle {
+  font-size: 48rpx;
+  font-style: italic;
+  background: linear-gradient(45deg, #5BC0DE, #FFB6C1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 4rpx;
+}
+.form-section {
+  width: 100%;
+  margin-bottom: 60rpx;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 40rpx;
+}
+.input-group {
+  position: relative;
+  margin-bottom: 40rpx;
+  width: 85%;
+  margin-left: 0;
+}
+.input-group input {
+  width: 100%;
+  height: 100rpx;
+  background: #FFFFFF;
+  border-radius: 50rpx;
+  padding: 0 30rpx;
+  font-size: 36rpx;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.remember-section {
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  width: 85%;
+  margin-left: 0;
+  margin-top: 20rpx;
+}
+.remember-section text {
+  font-size: 28rpx;
+  color: #666;
+  margin-left: 16rpx;
+}
+.forget-pwd {
+  margin-left: auto;
+  color: #5BC0DE !important;
+}
+.button-group {
+  margin-top: auto;
+  margin-bottom: 80rpx;
+  padding: 0;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button-group button {
+  width: 100%;
+  height: 100rpx;
+  border-radius: 50rpx;
+  font-size: 36rpx;
+  line-height: 100rpx;
+  margin-bottom: 30rpx;
+}
+.login-btn {
+  background: #5BC0DE;
+  color: white;
+  box-shadow: 0 6px 12px rgba(91, 192, 222, 0.3);
+}
+.register-btn {
+  background: transparent;
+  color: #5BC0DE;
+  border: 2rpx solid #5BC0DE;
+}
+button::after {
+  border: none;
+}

@@ -1,0 +1,27 @@
+<view class="container">
+  <!-- 蓝色半圆背景 -->
+  <view class="semicircle"></view>
+
+  <!-- 顶部导航栏 -->
+  <view class="custom-nav">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-arrow">←</text>
+      <text class="back-text">返回</text>
+    </view>
+    <text class="nav-title">我的点赞</text>
+  </view>
+
+  <!-- 👇 最重要的修复：增加 content 容器，给内容留出安全区域 -->
+  <view class="content">
+    <!-- 点赞列表 -->
+    <view class="like-list">
+      <view class="like-item" wx:for="{{likeList}}" wx:key="index">
+        <image class="like-img" src="{{item.imgUrl}}" mode="aspectFill"></image>
+        <view class="like-desc">
+          <text class="like-title">{{item.title}}</text>
+          <text class="like-time">{{item.time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

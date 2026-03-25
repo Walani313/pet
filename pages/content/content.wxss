@@ -1,0 +1,26 @@
+.container{
+  width: 100%;
+  background-color: rgb(254,242,230);
+  padding: 30rpx;
+}
+
+.title{
+  font-family: 黑体;
+  font-size: 50rpx;
+  color: rgb(34, 46, 85);
+  margin-bottom: 20rpx;
+}
+
+.subtitle{
+  font-family: 仿宋;
+  font-size: 45rpx;
+  color: rgb(17, 30, 59);
+  margin-bottom: 10rpx;
+}
+
+.content{
+  color: rgb(88, 54, 8);
+  font-size: 38rpx;
+  font-family: 宋体;
+  line-height: 1.6;
+}

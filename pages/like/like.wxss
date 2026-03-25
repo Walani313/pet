@@ -1,0 +1,91 @@
+view, text {
+  box-sizing: border-box;
+}
+
+.container {
+  position: absolute;
+  padding: 0; /* 去掉 padding，改用内部 content 的 padding */
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(254, 242, 230);
+}
+
+.semicircle {
+  position: absolute;
+  top: -55%;
+  left: 50%;
+  width: 200%;
+  height: 80%;
+  background-color: rgb(69, 101, 169);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* 导航栏位置 */
+.custom-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 120rpx;
+  padding: 0 30rpx;
+  color: white;
+  z-index: 2;
+}
+.back-btn {
+  display: flex;
+  align-items: center;
+}
+.back-arrow {
+  font-size: 32rpx;
+  margin-right: 8rpx;
+}
+.nav-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 36rpx;
+  font-weight: 500;
+}
+
+/* 👇 核心修复：content 容器，撑开高度，避免被背景挡住 */
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 0 30rpx; /* 左右留白 */
+  margin-top: 20rpx; /* 距离导航栏一点距离 */
+}
+
+/* 列表样式 */
+.like-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.like-item {
+  width: 48%;
+  height: 220rpx;
+  background-color: white;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: flex-end;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+.like-img {
+  width: 100%;
+  height: 200rpx;
+}
+.like-desc {
+  padding: 10rpx;
+}
+.like-title {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+.like-time {
+  font-size: 26rpx;
+  color: #999;
+}

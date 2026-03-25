@@ -1,0 +1,86 @@
+<view class="container">
+  <view class="user-info">
+    <view class="header">
+      <image class="avatar" src="/images/photocat.webp"></image>
+      <text class="nickname" bindtap="navigateToPersonPage">咪咪姐姐</text>
+    </view>
+  </view>
+
+
+  <view class="stats-section">
+    <view class="stats-row">
+      <view class="stat-item">
+        <text class="stat-number">312</text>
+        <text class="stat-label">关注</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-number">12</text>
+        <text class="stat-label">粉丝</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-number">56</text>
+        <text class="stat-label">作品</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 日记内容区域 -->
+  <view class="content-section">
+    <view class="section-title">我的记录</view>
+    <view class="diary-list">
+      <block wx:for="{{diaryEntries}}" wx:key="date">
+        <view class="diary-card">
+          <text class="diary-date">{{item.date}}</text>
+          <text class="diary-content">{{item.content}}</text>
+        </view>
+      </block>
+      <view class="view-more" bindtap="showMoreEntries">{{showMoreText}}</view>
+    </view>
+  </view>
+
+  <!-- 九宫格区域 -->
+  <view class="grid-section">
+    <view class="section-title">我的脚步</view>
+    <view class="grid">
+      <view class="grid-item" bindtap="navigateToWorkPage">
+        <image class="icon" src="/images/work.png"></image>
+        <text class="grid-text">我的作品</text>
+      </view>
+      <view class="grid-item" bindtap="navigateToLikePage">
+        <image class="icon" src="/images/like.png"></image>
+        <text class="grid-text">我的点赞</text>
+      </view>
+      <view class="grid-item" bindtap="navigateToBookmarkPage">
+        <image class="icon" src="/images/bookmark.png"></image>
+        <text class="grid-text">我的收藏</text>
+      </view>
+      <view class="grid-item" bindtap="navigateToFollowPage">
+        <image class="icon" src="/images/follow.png"></image>
+        <text class="grid-text">我的关注</text>
+      </view>
+      <view class="grid-item" >
+        <image class="icon" src="/images/more.png"></image>
+        <text class="grid-text">我的粉丝</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 宠物相册 -->
+  <view class="pet-album-section">
+    <view class="section-title">宠物相册</view>
+    <view class="album-grid">
+      <view class="album-item" >
+        <image class="album-image" src="/images/photo1.jpg"></image>
+      </view>
+      <view class="album-item" >
+        <image class="album-image" src="/images/photo2.jpg"></image>
+      </view>
+      <view class="album-item" >
+        <image class="album-image" src="/images/photo3.png"></image>
+      </view>
+      <view class="album-item" >
+        <image class="album-image" src="/images/photo4.jpg"></image>
+      </view>
+    </view>
+  </view>
+</view>

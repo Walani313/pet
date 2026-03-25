@@ -1,0 +1,188 @@
+/* 最外层容器 */
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #f7efe0;
+  min-height: 100vh;
+  padding-bottom: 30rpx;  /* 底部留白 */
+}
+
+/* 用户信息区 */
+.user-info {
+  background: #f8bbd0;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.nickname {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+/* 统计卡片 */
+.stats-section {
+  background: #fff;
+  margin: 20rpx;
+  padding: 30rpx 20rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.08);
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.stat-number {
+  font-size: 40rpx;
+  color: #ff6b81;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 10rpx;
+}
+
+/* 我的记录区域 */
+.content-section {
+  background: #fff;
+  margin: 20rpx;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.08);
+}
+
+.section-title {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #eee;
+  margin-bottom: 10rpx;
+}
+
+.diary-list {
+  min-height: 100rpx;
+}
+
+.diary-card {
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.diary-card:last-child {
+  border-bottom: none;
+}
+
+.diary-date {
+  display: block;
+  color: #999;
+  font-size: 26rpx;
+  margin-bottom: 12rpx;
+}
+
+.diary-content {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 1.6;
+  word-break: break-word;  /* 长内容自动换行 */
+}
+
+.view-more {
+  color: #ff84a2;
+  font-size: 28rpx;
+  padding: 30rpx 0 10rpx;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* 九宫格区域 */
+.grid-section {
+  background: #fff;
+  margin: 20rpx;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.08);
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+
+.grid-item {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+  cursor: pointer;
+}
+
+.icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 10rpx;
+}
+
+.grid-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 宠物相册 */
+.pet-album-section {
+  background: #fff;
+  margin: 20rpx;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.08);
+}
+
+.album-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+  gap: 2%;  /* 间距 */
+}
+
+.album-item {
+  width: 23.5%;  /* 每行4个，留点间距 */
+  margin-bottom: 20rpx;
+}
+
+.album-image {
+  width: 100%;
+  height: 160rpx;
+  border-radius: 12rpx;
+  object-fit: cover;
+  cursor: pointer;
+}

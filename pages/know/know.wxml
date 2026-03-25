@@ -1,0 +1,155 @@
+<view class="container">
+  <view class="semicircle"></view>
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <input 
+      placeholder="请输入关键词" 
+      bindinput="onInput" 
+      value="{{searchKeyword}}"
+    />
+    <button bindtap="onSearch"
+    size="mini">搜索</button>
+  </view>
+
+  <!-- 搜索结果列表 -->
+  <view class="result-list">
+    <block wx:for="{{searchResults}}" wx:key="id">
+      <view class="result-item" bindtap="onContent" data-id="{{item.id}}">
+        <text>{{item.title}}</text>
+      </view>
+    </block>
+  </view>
+
+  <!--书籍资料-->
+  <view class="content">宠物书籍</view>
+  <view class="books">
+    <view class="book1">
+      <image src="/images/book1.png" mode="heightFix" style="height: 450rpx; margin-top: 35rpx;"/>
+      <button class="book-button" bindtap="showBookGroup" data-group="1" style="width: 155rpx; height: 60rpx; transform: translate(50%,-120%); ">查看详情</button>
+    </view>
+    <view>
+      <view class="book2">
+        <image src="/images/book2.png" mode="heightFix" style="height: 210rpx; margin-top: 18rpx; margin-left: 10rpx;"/>
+        <button class="book-button" bindtap="showBookGroup" data-group="2" style="width: 155rpx; height: 60rpx; transform: translate(54%,-145%); ">查看详情</button>
+      </view>
+      <view class="book2">
+        <image src="/images/book3.png" mode="heightFix" style="height: 190rpx; margin-top: 32rpx; margin-left: 10rpx;"/>
+        <button class="book-button" bindtap="showBookGroup" data-group="3" style="width: 155rpx; height: 60rpx; transform: translate(52%,-142%); ">查看详情</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- ====================== -->
+  <!-- 只在这里加了书籍简介 -->
+  <!-- ====================== -->
+  <view wx:if="{{showGroup1}}" class="intro">{{bookIntro[1]}}</view>
+  <view wx:if="{{showGroup2}}" class="intro">{{bookIntro[2]}}</view>
+  <view wx:if="{{showGroup3}}" class="intro">{{bookIntro[3]}}</view>
+
+  <!-- 分组1：book4 + book5 并排 -->
+<view wx:if="{{showGroup1}}" class="more-books">
+  <view class="book-item">
+    <image src="/images/book4.jpg" mode="aspectFit" style="width:280rpx; height:380rpx;"/>
+  </view>
+  <view class="book-item">
+    <image src="/images/book5.jpg" mode="aspectFit" style="width:280rpx; height:380rpx;"/>
+  </view>
+  <button bindtap="hideAll" size="mini" class="hide-btn">收起</button>
+</view>
+
+<!-- 分组2：book6 + book7 并排 -->
+<view wx:if="{{showGroup2}}" class="more-books">
+  <view class="book-item">
+    <image src="/images/book6.jpg" mode="aspectFit" style="width:280rpx; height:380rpx;"/>
+  </view>
+  <view class="book-item">
+    <image src="/images/book7.png" mode="aspectFit" style="width:280rpx; height:380rpx;"/>
+  </view>
+  <button bindtap="hideAll" size="mini" class="hide-btn">收起</button>
+</view>
+
+<!-- 分组3：book8 居中显示 -->
+<view wx:if="{{showGroup3}}" class="more-books">
+  <view class="book-item">
+    <image src="/images/book8.jpg" mode="aspectFit" style="width:280rpx; height:380rpx;"/>
+  </view>
+  <button bindtap="hideAll" size="mini" class="hide-btn">收起</button>
+</view>
+   
+  <!--文章按钮-->
+  <view class="buttons">
+    <view class="left-part">
+      <button class="button1" 
+      bind:tap="onButton"
+      data-id="1"
+      style="font-size: 80rpx; width: 320rpx;">猫 猫
+      </button>
+      <view>
+        <button class="button1" 
+        bind:tap="onButton"
+        data-id="2"
+        style="font-size: 35rpx; width: 320rpx; height: 80rpx;">外观特征
+        </button>
+        <button class="button1" 
+        bind:tap="onButton"
+        data-id="3"
+        style="font-size: 35rpx; width: 320rpx; height: 80rpx;">性格特点
+        </button>
+      </view>
+      <view class="detail">
+        <view>
+          <button class="button1" 
+          bind:tap="onButton"
+          data-id="4"
+          style="font-size: 35rpx; width: 150rpx; height: 80rpx;">饮食
+          </button>
+          <button class="button1" 
+          bind:tap="onButton"
+          data-id="5"
+          style="font-size: 35rpx; width: 150rpx; height: 80rpx;">运动
+          </button>
+          <button class="button1" 
+          bind:tap="onButton"
+          data-id="6"
+          style="font-size: 35rpx; width: 150rpx; height: 80rpx;">清洁
+          </button>
+        </view>
+        <image src="/images/image1.png" mode="widthFix" style="width: 160rpx; margin-top: 55rpx; margin-left: 20rpx;"/>
+      </view>
+    </view>
+    <view class="right-part">
+      <button class="button2" 
+      bind:tap="onButton"
+      data-id="7"
+      style="font-size: 80rpx; width: 320rpx; padding: 16rpx;">狗 狗
+      </button>
+      <view class="detail">
+        <button class="button2" 
+        bind:tap="onButton"
+        data-id="8"
+        style="font-size: 33rpx; width: 80rpx; height: 200rpx;margin-right: 40rpx; padding: 15rpx;">品种信息
+        </button>
+        <button class="button2" 
+        bind:tap="onButton"
+        data-id="9"
+        style="font-size: 33rpx; width: 80rpx; height: 200rpx;margin-right: 40rpx; padding: 15rpx;">饮食需求
+        </button>
+        <button class="button2" 
+        bind:tap="onButton"
+        data-id="10"
+        style="font-size: 33rpx; width: 80rpx; height: 200rpx;padding: 15rpx;">训练方法
+        </button>
+      </view>
+      <button class="button2" 
+      bind:tap="onButton"
+      data-id="11"
+      style="font-size: 35rpx; width: 320rpx; height: 120rpx;padding: 34rpx;">疾病预防与治疗
+      </button>
+      <button class="button2"
+      bind:tap="onButton"
+      data-id="12"
+      style="font-size: 40rpx; width: 320rpx; height: 120rpx;padding: 30rpx;">养育小锦囊
+      </button>
+    </view>
+  </view>
+</view>

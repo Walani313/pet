@@ -1,0 +1,63 @@
+<view class="container">
+  <image class="fullscreen-image" src="../../images/blue.png" mode="widthFix"></image>
+     <!-- 图片区域 -->
+  <view class="image-container">
+    <image src="../../images/搜索框.png" mode="aspectFill" class="image"></image>
+    <view class="search-box">
+      <input
+        type="text"
+        placeholder="请输入搜索内容"
+        bindinput="onSearchInput"
+        class="search-input"
+      />
+      <button bindtap="search" class="search-button">搜索</button>
+    </view>
+  </view>
+
+  <!-- 搜索结果列表 -->
+  <view class="result-list">
+    <block wx:for="{{searchResults}}" wx:key="index">
+      <view class="result-item">
+        <text>{{item}}</text>
+      </view>
+    </block>
+  </view>
+<view class="container">
+  <button class="circle-button" bindtap="handleImageTap">+</button>
+</view>
+ <view class="tabs">
+    <view class="tab {{activeTab === 'latest' ? 'active' : ''}}" bindtap="switchTab" data-tab="latest">最新</view>
+    <view class="tab {{activeTab === 'hot' ? 'active' : ''}}" bindtap="switchTab" data-tab="hot">最热</view>
+  </view>
+</view>
+<view class="container">
+  
+
+  <view class="content">
+    <view wx:if="{{activeTab === 'latest'}}">
+      <image class="w9" src="../../images/9w.png" mode="widthFix"></image>
+ 
+      <image class="w222" src="../../images/2w2.png" mode="widthFix"></image>
+  <image class="g232" src="../../images/23.png" mode="widthFix"></image>
+  <image class="g212" src="../../images/21.png" mode="widthFix"></image>
+  <image class="g192" src="../../images/19.png" mode="widthFix"></image>
+  
+  <image class="w22" src="../../images/8.png" mode="widthFix"></image>
+      
+     <!-- index.wxml -->
+
+</view>
+
+<view wx:if="{{activeTab === 'hot'}}">
+  <image class="w9" src="../../images/9w.png" mode="widthFix"></image>
+  <image class="w22" src="../../images/2w2.png" mode="widthFix"></image>
+  <image class="w2" src="../../images/2w.png" mode="widthFix"></image>
+  <image class="g23" src="../../images/23.png" mode="widthFix"></image>
+  <image class="g21" src="../../images/21.png" mode="widthFix"></image>
+  <image class="g19" src="../../images/19.png" mode="widthFix"></image>
+  
+    </view>
+  </view>
+</view>
+
+

@@ -1,0 +1,34 @@
+<swiper class="guide-swiper" bindchange="handleChange" current="{{current}}"
+  duration="400"
+  circular="{{false}}"
+  easing-function="easeInOutCubic"
+  skip-hidden-item-layout="{{true}}"
+  bindanimationfinish="handleAnimationFinish">
+  <swiper-item wx:for="{{guides}}" wx:key="index">
+    <view class="guide-item">
+      <view class="status-bar"></view>
+      <view class="splash-bg">
+        <view class="splash-circle pink"></view>
+        <view class="splash-circle blue"></view>
+      </view>
+      <view class="content">
+        <view class="title-container">
+          <view class="title">{{item.title}}</view>
+          <view class="subtitle">{{item.subtitle}}</view>
+        </view>
+        <view class="pet-image">
+          <image wx:if="{{index === 0}}" src="../../images/dog.png" mode="aspectFit" class="guide-img {{index === 0 ? 'dog-img' : ''}}"/>
+          <image wx:elif="{{index === 1}}" src="../../images/cats.png" mode="aspectFit" class="guide-img cats-light"/>
+          <image wx:else src="../../images/person-cat.png" mode="aspectFit" class="guide-img {{index === 2 ? 'person-cat-img' : ''}}"/>
+        </view>
+        <view class="description">{{item.desc}}</view>
+      </view>
+      <view class="dots">
+        <view class="dot {{current === 0 ? 'active' : ''}}"></view>
+        <view class="dot {{current === 1 ? 'active' : ''}}"></view>
+        <view class="dot {{current === 2 ? 'active' : ''}}"></view>
+      </view>
+      <view class="enter-btn" bindtap="enterApp">立即进入</view>
+    </view>
+  </swiper-item>
+</swiper> 

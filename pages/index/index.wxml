@@ -1,0 +1,120 @@
+<view class="container">
+  <view class="header">
+    <view class="greeting">
+      <text class="title">Hi!</text>
+    </view>
+    <view class="actions">
+    </view>
+  </view>
+
+  <view class="pet-card">
+    <view class="pet-info">
+      <view class="info" style="width: 50%">
+        <view style="display: inline-block">
+          <view class="name" wx:if="{{!isEditingPet}}">
+            <text wx:if="{{petInfo.name}}">{{petInfo.name}}</text>
+            <text class="placeholder" wx:else>小宠名字</text>
+          </view>
+          <input class="name-input" wx:else value="{{tempPetInfo.name}}" 
+            data-field="name" bindinput="handlePetInput" 
+            placeholder="小宠名字" placeholder-class="placeholder" 
+            maxlength="6" bindblur="checkNameLength"/>
+        </view>
+        <text class="edit-icon iconfont" bindtap="{{isEditingPet ? 'handleSavePet' : 'handleEditPet'}}">
+          {{isEditingPet ? '✓' : '✎'}}
+        </text>
+        
+        <view class="stats" wx:if="{{!isEditingPet}}">
+          <text wx:if="{{petInfo.age}}">{{petInfo.age}}</text>
+          <text class="placeholder" wx:else>年龄</text>
+          <text> | </text>
+          <text wx:if="{{petInfo.weight}}">{{petInfo.weight}}</text>
+          <text class="placeholder" wx:else>体重</text>
+          <text> | </text>
+          <text wx:if="{{petInfo.gender}}">{{petInfo.gender}}</text>
+          <text class="placeholder" wx:else>性别</text>
+        </view>
+        <view class="stats-edit" wx:else>
+          <input placeholder="年龄" placeholder-class="placeholder" value="{{tempPetInfo.age}}" data-field="age" bindinput="handlePetInput" />
+          <input placeholder="体重" placeholder-class="placeholder" value="{{tempPetInfo.weight}}" data-field="weight" bindinput="handlePetInput" />
+          <input placeholder="性别" placeholder-class="placeholder" value="{{tempPetInfo.gender}}" data-field="gender" bindinput="handlePetInput" />
+        </view>
+        
+        <view class="tags">
+          <input class="tag" wx:for="{{petInfo.tags}}" wx:key="index"
+            value="{{item}}" data-index="{{index}}"
+            bindblur="handleEditTag" />
+          <text class="add-tag" wx:if="{{petInfo.tags.length < 4}}" bindtap="handleAddTag">+</text>
+        </view>
+      </view>
+      <view style="width: 50%">
+        <view class="pet-avatar-container">
+          <image class="pet-avatar" src="{{petAvatar}}" mode="aspectFit" bindtap="switchPetAvatar"/>
+          <text class="avatar-switch-tip">点击头像切换喵喵汪汪</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="todo-section">
+    <!-- 改造后的 To Do List -->
+    <view class="todo-list">
+      <view class="todo-header">To Do List</view>
+      
+      <!-- 新建待办按钮 -->
+      <view class="add-todo-btn" bindtap="addNewTodo">
+        <text>+ 新建待办</text>
+      </view>
+      
+      <view class="todo-item" wx:for="{{todoList}}" wx:key="id" wx:for-item="item">
+        <!-- 编辑模式 -->
+        <input class="todo-input" wx:if="{{editingTodoIndex === index}}" 
+          value="{{item.text}}" focus="{{true}}" 
+          bindblur="handleSaveTodo" data-index="{{index}}" />
+        
+        <!-- 显示模式（带勾选框） -->
+        <view class="todo-content" wx:else>
+          <!-- 勾选框 -->
+          <view 
+            class="todo-checkbox {{item.done ? 'checked' : ''}}"
+            bindtap="toggleTodo"
+            data-id="{{item.id}}"
+          >
+            <text wx:if="{{item.done}}">✓</text>
+          </view>
+          
+          <!-- 待办文字 -->
+          <text 
+            class="todo-text {{item.done ? 'done' : ''}}"
+            bindtap="handleEditTodo" 
+            data-index="{{index}}"
+          >{{item.text}}</text>
+          
+          <!-- 编辑图标 -->
+          <text class="todo-edit-icon" bindtap="handleEditTodo" data-index="{{index}}">✎</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="widgets">
+      <view class="widget">
+        <text class="widget-title">记录</text>
+        <image class="widget-icon" src="../../images/record.png" 
+          style="transform: scale(2.4) translateY(20rpx); margin: 20rpx auto 0"
+          mode="aspectFit"
+          bindtap="navToRecord"/>
+        <view class="widget-icons"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="daily-tip">
+    <view class="tip-header">今日科普</view>
+    <view class="tip-title">{{dailyTips[currentTipIndex].title}}</view>
+    <view class="tip-content">{{dailyTips[currentTipIndex].content}}</view>
+    <view class="tip-footer">
+      <image class="tip-nav" src="../../images/prev.png" bindtap="handlePrevTip"/>
+      <image class="tip-nav" src="../../images/next.png" bindtap="handleNextTip"/>
+    </view>
+  </view>
+</view>
