@@ -1,0 +1,88 @@
+<view class="container">
+  <!-- 顶部背景图 -->
+  <image class="fullscreen-image" src="../../images/blue.png" mode="widthFix"></image>
+  
+  <!-- 搜索框 -->
+  <view class="image-container">
+    <image src="../../images/搜索框.png" mode="aspectFill" class="image"></image>
+    <view class="search-box">
+      <input type="text" placeholder="请输入搜索内容" bindinput="onSearchInput" class="search-input" />
+      <button bindtap="search" class="search-button">搜索</button>
+    </view>
+  </view>
+
+  <!-- 搜索结果 -->
+  <view class="result-list" wx:if="{{searchResults.length > 0}}">
+    <block wx:for="{{searchResults}}" wx:key="index">
+      <view class="result-item">
+        <text>{{item.content}}</text>
+      </view>
+    </block>
+  </view>
+
+  <!-- 发布按钮 -->
+  <button class="circle-button" bindtap="goToPublish">+</button>
+
+  <!-- 标签页 -->
+  <view class="tabs">
+    <view class="tab {{activeTab === 'latest' ? 'active' : ''}}" bindtap="switchTab" data-tab="latest">最新</view>
+    <view class="tab {{activeTab === 'hot' ? 'active' : ''}}" bindtap="switchTab" data-tab="hot">最热</view>
+  </view>
+
+  <!-- 帖子列表 -->
+  <view class="content">
+    <view wx:if="{{isLoading}}">
+      <text class="loading-text">加载中...</text>
+    </view>
+    
+    <block wx:for="{{postList}}" wx:key="id">
+      <view class="post-card">
+        <!-- 用户信息区 -->
+        <view class="post-header">
+          <image class="user-avatar" src="{{item.userAvatar || '/images/default-avatar.png'}}" 
+                 bindtap="goToUserPage" data-userid="{{item.userId}}"></image>
+          <view class="user-info">
+            <text class="user-name" bindtap="goToUserPage" data-userid="{{item.userId}}">{{item.userName || '宠友'}}</text>
+            <text class="post-time">{{item.createTime}}</text>
+          </view>
+          <view class="follow-btn" wx:if="{{item.userId !== currentUserId}}" 
+                bindtap="toggleFollow" data-userid="{{item.userId}}">
+            {{item.isFollowed ? '已关注' : '关注'}}
+          </view>
+        </view>
+        
+        <!-- 帖子内容 -->
+        <view class="post-content">
+          <text class="post-text">{{item.content}}</text>
+        </view>
+        
+        <!-- 图片区 -->
+        <view class="post-images" wx:if="{{item.images && item.images.length > 0}}">
+          <image wx:for="{{item.images}}" wx:key="index" class="post-image" 
+                 src="{{item}}" mode="aspectFill" 
+                 bindtap="previewImage" data-url="{{item}}" data-urls="{{item.images}}"></image>
+        </view>
+        
+        <!-- 操作栏 -->
+        <view class="post-actions">
+          <view class="action-item" bindtap="toggleLike" data-postid="{{item.id}}">
+            <text class="action-icon">{{item.isLiked ? '❤️' : '🤍'}}</text>
+            <text>{{item.likes || 0}}</text>
+          </view>
+          <view class="action-item" bindtap="goToComment" data-postid="{{item.id}}">
+            <text class="action-icon">💬</text>
+            <text>{{item.comments || 0}}</text>
+          </view>
+          <view class="action-item" bindtap="toggleCollect" data-postid="{{item.id}}">
+            <text class="action-icon">{{item.isCollected ? '⭐' : '☆'}}</text>
+            <text>{{item.collects || 0}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    
+    <view wx:if="{{postList.length === 0 && !isLoading}}">
+      <text class="empty-text">暂无帖子，快来发布第一个吧~</text>
+    </view>
+  </view>
+</view>
