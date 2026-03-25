@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/guide/guide",
+    "pages/login/login",
+    "pages/index/index",
+    "pages/record/record",
+    "pages/forum/forum",
+    "pages/content/content",
+    "pages/know/know",
+    "pages/post/post",
+    "pages/personal/personal",
+    "pages/work/work",
+    "pages/like/like",
+    "pages/recordlist/recordlist",
+    "pages/bookmark/bookmark",
+    "pages/follow/follow",
+    "pages/more/more",
+    "pages/pet_album/pet_album"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "个人页面",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },    
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "usingComponents": {},
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#FF6600",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home_normal.png",
+        "selectedIconPath": "images/home_selected.png"
+      },
+      {
+        "pagePath": "pages/forum/forum",
+        "text": "论坛",
+        "iconPath": "images/forum_normal.png",
+        "selectedIconPath": "images/forum_selected.png"
+      },
+      {
+        "pagePath": "pages/know/know",
+        "text": "百科",
+        "iconPath": "images/encyclopedia_normal.png",
+        "selectedIconPath": "images/encyclopedia_selected.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人",
+        "iconPath": "images/personal_normal.png",
+        "selectedIconPath": "images/personal_selected.png"
+      }
+    ]
+  }
+}
